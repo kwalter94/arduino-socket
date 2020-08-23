@@ -21,7 +21,7 @@ Go into arduino_socket/main.py and define a couple of workers (there should
 a couple of example workers defined in there). A worker is just a function
 that returns an iterator of json objects (anything that
 `json.dumps <https://docs.python.org/3/library/json.html#json.dumps>`_ can
-handle). Following is an example::
+handle). Following is an example:
 
 .. code-block:: python
     :linenos:
@@ -45,9 +45,7 @@ handle). Following is an example::
         '''A worker that produces even numbers starting from 0 upto *max*.'''
 
         return iter(2 * x for i in range(max))
-    
 
-    
     socket = Socket(__name__)
 
     # Notice *odds_worker* is being called before being passed to *add_worker*.
