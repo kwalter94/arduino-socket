@@ -24,7 +24,6 @@ that returns an iterator of json objects (anything that
 handle). Following is an example:
 
 .. code-block:: python
-    :linenos:
 
     import time
 
