@@ -1,6 +1,6 @@
 import time
 
-from .app import App
+from .socket import Socket
 
 def evens_worker():
     value = 0
@@ -18,7 +18,11 @@ def odds_worker():
         value += 1
         time.sleep(0.1)
 
-app = App(__name__)
-app.add_worker(evens_worker())
-app.add_worker(odds_worker())
-app.run()
+socket = Socket(__name__)
+socket.add_worker(evens_worker())
+socket.add_worker(odds_worker())
+socket.start_workers()
+app = socket.get_app()
+
+if __name__ == '__main__':
+    socket.start_server()
